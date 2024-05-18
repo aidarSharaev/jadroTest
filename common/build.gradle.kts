@@ -70,8 +70,13 @@ dependencies {
     implementation(rootProject.extra["navFragmentDep"].toString())
     implementation(rootProject.extra["navUiDep"].toString())
 
-
     implementation ("androidx.fragment:fragment-ktx:1.7.1")
+
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+
+    implementation ("androidx.room:room-runtime:2.6.1")
+    annotationProcessor ("androidx.room:room-compiler:2.6.1")
+    ksp ("androidx.room:room-compiler:2.6.1")
 
 
     implementation("androidx.core:core-ktx:1.13.1")

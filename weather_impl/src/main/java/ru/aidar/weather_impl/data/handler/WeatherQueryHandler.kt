@@ -1,12 +1,12 @@
 package ru.aidar.weather_impl.data.handler
 
 import retrofit2.Response
+import ru.aidar.common.R
 import ru.aidar.common.core.resources.JadroResourceManager
 import ru.aidar.weather_api.model.ApiResult
 import ru.aidar.weather_api.model.ForecastRemoteModel
 import ru.aidar.weather_api.model.ForecastResult
 import ru.aidar.weather_impl.data.map.ForecastMapper
-import ru.aidar.common.R
 import javax.inject.Inject
 
 class WeatherQueryHandler @Inject constructor(

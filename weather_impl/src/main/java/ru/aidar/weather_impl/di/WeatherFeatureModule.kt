@@ -5,7 +5,7 @@ import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import ru.aidar.common.data.JadroNetworkApiCreator
+import ru.aidar.common.data.remote.JadroNetworkApiCreator
 import ru.aidar.common.di.scope.weather.WeatherFeatureScope
 import ru.aidar.weather_api.remote.WeatherApiService
 import ru.aidar.weather_api.repo.WeatherRepository
@@ -13,6 +13,7 @@ import ru.aidar.weather_api.repo.WeatherUseCases
 import ru.aidar.weather_api.wrap.WeatherState
 import ru.aidar.weather_api.wrap.WeatherStateWrapper
 import ru.aidar.weather_impl.data.repo.WeatherRepositoryImpl
+import ru.aidar.weather_impl.data.utils.forecastPlaceholder
 import ru.aidar.weather_impl.data.wrap.WeatherStateWrapperImpl
 
 @Module
@@ -37,7 +38,7 @@ class WeatherFeatureModule {
 
     @Provides
     fun provideWeatherState(): MutableStateFlow<WeatherState> {
-        return MutableStateFlow(WeatherState())
+        return MutableStateFlow(WeatherState(forecastLocalModel = forecastPlaceholder))
     }
 
     @Provides

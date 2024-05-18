@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import ru.aidar.common.core.resources.JadroResourceManager
 import ru.aidar.common.di.viewmodel.ViewModelKey
 import ru.aidar.common.di.viewmodel.ViewModelModule
 import ru.aidar.weather_api.repo.WeatherUseCases
@@ -31,11 +32,13 @@ class WeatherModule {
         router: WeatherRouter,
         useCases: WeatherUseCases,
         wrapper: WeatherStateWrapper,
+        resourceManager: JadroResourceManager
     ): ViewModel {
         return WeatherViewModel(
             router = router,
             useCases = useCases,
             wrapper = wrapper,
+            resourceManager = resourceManager
         )
     }
 }

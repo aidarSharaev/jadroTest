@@ -23,5 +23,5 @@ class JadroAppProperties(context: Context) {
         return JadroNetworkProperties(connectTimeout, readTimeout, writeTimeout)
     }
 
-    fun getWeatherUrl(): String = properties["weather_url"] ?: throw RuntimeException() // todo
+    fun getWeatherUrl(): String = properties["weather_url"] ?: throw RuntimeException()
 }

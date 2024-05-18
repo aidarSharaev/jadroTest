@@ -16,13 +16,13 @@ object JadroAppStyle {
 
     val WhiteBlue = Color(0xFFE0FFFF)
 
-    private val linearGradientFirst = Color(0xFF5d51b7) // todo
+    private val linearGradientFirst = Color(0xFF5d51b7)
     private val linearGradientSecond = Color(0xFF7b71c4)
     private val linearGradientThird = Color(0xFFd4d0ee)
     private val linearGradientFourth = Color(0xFF9289cf)
     private val linearGradientFifth = Color(0xFF4b3db1)
 
-    val CardColor2 = Color(0xFFa9a3d9)
+    val cardColor = Color(0xFFa9a3d9)
 
     val backGroundGradient = Brush.linearGradient(
         listOf(

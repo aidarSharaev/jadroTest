@@ -1,4 +1,4 @@
-package ru.aidar.common.data
+package ru.aidar.common.data.remote
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient

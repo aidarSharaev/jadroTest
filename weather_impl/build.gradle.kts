@@ -53,9 +53,10 @@ dependencies {
 
     implementation ("androidx.fragment:fragment-ktx:1.7.1")
 
+    implementation("com.google.android.gms:play-services-location:21.2.0")
 
 
-    /*implementation(rootProject.extra["material3Dep"].toString())*/
+
     implementation(rootProject.extra["activityComposeDep"].toString())
     implementation(rootProject.extra["viewModelDep"].toString())
     implementation("androidx.compose.foundation:foundation-layout-android:1.6.7")

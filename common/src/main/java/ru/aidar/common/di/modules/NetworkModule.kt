@@ -9,7 +9,7 @@ import ru.aidar.common.core.config.JadroAppProperties
 import ru.aidar.common.core.config.JadroNetworkProperties
 import ru.aidar.common.core.monitor.JadroNetworkMonitor
 import ru.aidar.common.core.monitor.JadroNetworkMonitorImpl
-import ru.aidar.common.data.JadroNetworkApiCreator
+import ru.aidar.common.data.remote.JadroNetworkApiCreator
 import ru.aidar.common.di.scope.ApplicationScope
 import java.util.concurrent.TimeUnit
 
@@ -22,7 +22,6 @@ class NetworkModule {
         return appProperties.networkProperties()
     }
 
-    // @ApplicationScope // todo
     @Provides
     fun provideInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
