@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unknown_error">Unknown error</string>
+    <string name="check_your_connection">Check your connection</string>
+    <string name="request_failed">Request failed</string>
+    <string name="jadroweather">JadroWeather</string>
+</resources>

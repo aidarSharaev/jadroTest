@@ -1,5 +1,6 @@
 package ru.aidar.jadrotest
 
+import android.content.pm.PackageManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import ru.aidar.common.base.BaseActivity

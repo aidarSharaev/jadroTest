@@ -51,6 +51,9 @@ dependencies {
     implementation(rootProject.extra["navFragmentDep"].toString())
     implementation(rootProject.extra["navUiDep"].toString())
 
+    implementation ("androidx.fragment:fragment-ktx:1.7.1")
+
+
 
     /*implementation(rootProject.extra["material3Dep"].toString())*/
     implementation(rootProject.extra["activityComposeDep"].toString())
@@ -58,6 +61,13 @@ dependencies {
     implementation("androidx.compose.foundation:foundation-layout-android:1.6.7")
     implementation("androidx.compose.ui:ui:1.6.7")
     implementation("androidx.compose.runtime:runtime:1.6.7")
+
+
+    implementation(rootProject.extra["retrofitDep"].toString())
+    implementation(rootProject.extra["retrofitConverterDep"].toString())
+    implementation(rootProject.extra["serializationDep"].toString())
+    implementation(rootProject.extra["okhttpDep"].toString())
+    implementation(rootProject.extra["interceptorDep"].toString())
 
 
     implementation("androidx.compose.material3:material3:1.2.1")

@@ -71,6 +71,7 @@ dependencies {
     implementation(rootProject.extra["navUiDep"].toString())
 
 
+    implementation ("androidx.fragment:fragment-ktx:1.7.1")
 
 
     implementation("androidx.core:core-ktx:1.13.1")

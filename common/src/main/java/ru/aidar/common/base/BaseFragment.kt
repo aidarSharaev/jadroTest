@@ -18,5 +18,13 @@ abstract class BaseFragment<T : BaseViewModel> : Fragment() {
         inject()
     }
 
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//    }
+
     abstract fun inject()
 }
