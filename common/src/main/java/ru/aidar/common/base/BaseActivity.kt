@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity<T: BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     @Inject
     protected lateinit var viewModel: T

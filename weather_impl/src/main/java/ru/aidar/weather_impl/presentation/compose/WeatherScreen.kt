@@ -43,6 +43,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ru.aidar.common.R
 import ru.aidar.common.compose.JadroPermissionAlertDialog
 import ru.aidar.common.utils.Dimens
+import ru.aidar.common.utils.Dimens.height56
 import ru.aidar.common.utils.Dimens.size34
 import ru.aidar.common.utils.Dimens.width4
 import ru.aidar.common.utils.JadroAppStyle
@@ -123,7 +124,7 @@ fun WeatherScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp),
+                    .height(height56.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {

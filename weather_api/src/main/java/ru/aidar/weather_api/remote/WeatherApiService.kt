@@ -17,6 +17,6 @@ interface WeatherApiService {
         @Query("days") days: Int = FORECAST_DAYS_COUNT,
         @Query("aqi") aqi: String = "no",
         @Query("alerts") alerts: String = "no",
-        @Query("lang") lang: String = "fr"
+        @Query("lang") lang: String = "fr",
     ): Response<ForecastRemoteModel?>
 }

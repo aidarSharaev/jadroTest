@@ -27,6 +27,14 @@ class WeatherViewModel(
     private val resourceManager: JadroResourceManager,
 ) : BaseViewModel(), CoroutineScope {
 
+    init {
+        launch {
+            val cache = useCases.getCachedData()
+            cache?.let {
+                wrapper.setForecast(it)
+            }
+        }
+    }
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Default + mainJob
@@ -81,9 +89,8 @@ class WeatherViewModel(
 
     fun updateHasLocationPermission(value: Boolean) {
         wrapper.updateHasLocationPermission(value)
-        if(!wrapper.getWasApiCalled()) {
+        if(value)
             getForecast()
-        }
     }
 
     fun resetToast() {

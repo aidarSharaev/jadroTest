@@ -44,7 +44,7 @@ class WeatherFeatureModule {
     @Provides
     @WeatherFeatureScope
     fun provideWeatherStateWrapper(
-        flow: MutableStateFlow<WeatherState>
+        flow: MutableStateFlow<WeatherState>,
     ): WeatherStateWrapper {
         return WeatherStateWrapperImpl(flow)
     }

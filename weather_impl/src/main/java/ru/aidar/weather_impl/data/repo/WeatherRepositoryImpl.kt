@@ -1,21 +1,20 @@
 package ru.aidar.weather_impl.data.repo
 
-import android.content.Context
-import android.location.Location
-import android.location.LocationManager
 import android.util.Log
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import ru.aidar.common.R
 import ru.aidar.common.core.resources.JadroResourceManager
+import ru.aidar.common.data.local.JadroDatabase
 import ru.aidar.common.monitor.JadroLocationManager
 import ru.aidar.weather_api.model.ApiResult
+import ru.aidar.weather_api.model.ForecastLocalModel
 import ru.aidar.weather_api.model.ForecastResult
 import ru.aidar.weather_api.remote.WeatherApiService
 import ru.aidar.weather_api.repo.WeatherRepository
 import ru.aidar.weather_impl.data.handler.WeatherQueryHandler
+import ru.aidar.weather_impl.data.utils.toEntity
 import java.io.IOException
 import javax.inject.Inject
 
@@ -24,7 +23,8 @@ class WeatherRepositoryImpl @Inject constructor(
     private val dispatcher: CoroutineDispatcher,
     private val resourceManager: JadroResourceManager,
     private val handler: WeatherQueryHandler,
-    private val monitor: JadroLocationManager
+    private val monitor: JadroLocationManager,
+    private val database: JadroDatabase,
 ) : WeatherRepository {
     override suspend fun getForecast(q: String): ForecastResult = withContext(dispatcher) {
         try {
@@ -39,15 +39,24 @@ class WeatherRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getLastLocation(): String? {
-        return try {
+    override suspend fun getLastLocation(): String? = withContext(dispatcher) {
+        try {
             val location = monitor.lastLocationWrapper()
-            Log.d("JadroExc", "${location?.latitude ?: "hahhaha"}")
             location?.let { "${it.latitude},${it.longitude}" }
         } catch(e: Exception) {
             Log.d("JadroExc", e.toString())
             null
         }
+    }
+
+    override suspend fun getCachedData(): ForecastLocalModel? = withContext(dispatcher) {
+        val data = database.forecastDao().getCachedValue(0)
+        data?.toEntity()
+    }
+
+    override suspend fun cacheLastUpdate(forecastLocalModel: ForecastLocalModel) {
+        database.forecastDao().deleteAll()
+        database.forecastDao().insertData(forecastLocalModel.toEntity())
     }
 
     private val ioExceptionResult =

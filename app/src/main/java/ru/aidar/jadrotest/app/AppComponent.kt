@@ -45,5 +45,4 @@ interface AppComponent : MainDependencies, CommonApi {
     }
 
     fun inject(application: JadroApplication)
-
 }

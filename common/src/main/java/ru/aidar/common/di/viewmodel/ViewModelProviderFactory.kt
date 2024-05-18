@@ -18,7 +18,7 @@ constructor(
         try {
             @Suppress("UNCHECKED_CAST")
             return creator.get() as T
-        } catch (e: Exception) {
+        } catch(e: Exception) {
             throw RuntimeException(e)
         }
     }

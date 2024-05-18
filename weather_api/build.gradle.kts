@@ -5,5 +5,5 @@ plugins {
 dependencies {
     implementation(rootProject.extra["retrofitConverterDep"].toString())
     implementation(rootProject.extra["retrofitDep"].toString())
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation(rootProject.extra["coroutinesDep"].toString())
 }

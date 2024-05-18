@@ -2,6 +2,7 @@ package ru.aidar.weather_impl.di
 
 import dagger.BindsInstance
 import dagger.Component
+import ru.aidar.common.data.local.di.DbApi
 import ru.aidar.common.di.CommonApi
 import ru.aidar.common.di.scope.weather.WeatherFeatureScope
 import ru.aidar.weather_api.di.WeatherFeatureApi
@@ -14,7 +15,7 @@ import ru.aidar.weather_impl.presentation.di.WeatherComponent
     dependencies = [WeatherFeatureDependencies::class],
     modules = [WeatherFeatureModule::class]
 )
-interface WeatherFeatureComponent: WeatherFeatureApi {
+interface WeatherFeatureComponent : WeatherFeatureApi {
 
     fun weatherLoginComponentFactory(): WeatherComponent.Factory
 
@@ -28,6 +29,6 @@ interface WeatherFeatureComponent: WeatherFeatureApi {
         fun build(): WeatherFeatureComponent
     }
 
-    @Component(dependencies = [CommonApi::class])
-    interface WeatherFeatureDependenciesComponent: WeatherFeatureDependencies
+    @Component(dependencies = [CommonApi::class, DbApi::class])
+    interface WeatherFeatureDependenciesComponent : WeatherFeatureDependencies
 }

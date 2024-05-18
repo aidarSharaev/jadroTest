@@ -28,6 +28,7 @@ object Dimens {
     const val size34 = 34
     const val size70 = 70
 
+    const val height56 = 56
     const val height105 = 105
     const val height150 = 150
 

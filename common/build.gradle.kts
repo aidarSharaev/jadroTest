@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "ru.aidar.common"
-    compileSdk = 34
+    compileSdk = rootProject.extra["compileSdk"].toString().toInt()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = rootProject.extra["minSdk"].toString().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -53,10 +53,6 @@ dependencies {
     implementation(rootProject.extra["okhttpDep"].toString())
     implementation(rootProject.extra["interceptorDep"].toString())
 
-    // data store
-    implementation(rootProject.extra["dataStoreDep"].toString())
-    implementation(rootProject.extra["dataStoreCoreDep"].toString())
-
     // compose
     implementation("androidx.compose.runtime:runtime:1.6.7")
     implementation("androidx.compose.foundation:foundation-layout-android:1.6.7")
@@ -65,24 +61,29 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-android:1.6.7")
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-
     // navigation
     implementation(rootProject.extra["navFragmentDep"].toString())
     implementation(rootProject.extra["navUiDep"].toString())
 
-    implementation ("androidx.fragment:fragment-ktx:1.7.1")
+    // location
+    implementation(rootProject.extra["locationDep"].toString())
 
-    implementation("com.google.android.gms:play-services-location:21.2.0")
+    // room
+    implementation(rootProject.extra["roomRuntime"].toString())
+    implementation(rootProject.extra["roomKtxRuntime"].toString())
+    annotationProcessor(rootProject.extra["roomKspRuntime"].toString())
+    ksp(rootProject.extra["roomKspRuntime"].toString())
 
-    implementation ("androidx.room:room-runtime:2.6.1")
-    annotationProcessor ("androidx.room:room-compiler:2.6.1")
-    ksp ("androidx.room:room-compiler:2.6.1")
+    // core
+    implementation(rootProject.extra["coreDep"].toString())
+    implementation(rootProject.extra["appCompatDep"].toString())
+    implementation(rootProject.extra["fragmentDep"].toString())
 
+    // material
+    implementation(rootProject.extra["materialDep"].toString())
 
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.12.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // test
+    testImplementation(rootProject.extra["junitDep"].toString())
+    androidTestImplementation(rootProject.extra["androidJunitDep"].toString())
+    androidTestImplementation(rootProject.extra["espressoDep"].toString())
 }

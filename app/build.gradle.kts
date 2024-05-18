@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-    namespace = "ru.aidar.jadrotest"
-    compileSdk = 34
+    namespace = rootProject.extra["applicationId"].toString()
+    compileSdk = rootProject.extra["compileSdk"].toString().toInt()
 
     defaultConfig {
-        applicationId = "ru.aidar.jadrotest"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
+        applicationId = rootProject.extra["applicationId"].toString()
+        minSdk = rootProject.extra["minSdk"].toString().toInt()
+        targetSdk = rootProject.extra["compileSdk"].toString().toInt()
+        versionCode = rootProject.extra["versionCode"].toString().toInt()
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -53,9 +53,8 @@ android {
 
 dependencies {
 
-
+    // project
     implementation(project(":common"))
-
     implementation(project(":weather_api"))
     implementation(project(":weather_impl"))
 
@@ -71,27 +70,18 @@ dependencies {
     implementation(rootProject.extra["retrofitDep"].toString())
     implementation(rootProject.extra["retrofitConverterDep"].toString())
     implementation(rootProject.extra["serializationDep"].toString())
-    implementation(rootProject.extra["okhttpDep"].toString())
     implementation(rootProject.extra["interceptorDep"].toString())
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
+    // core
+    implementation(rootProject.extra["coreDep"].toString())
 
+    implementation(rootProject.extra["composeActivityDep"].toString())
+    implementation(rootProject.extra["composeUiDep"].toString())
+    implementation(rootProject.extra["runtimeKtxDep"].toString())
+    implementation("androidx.compose.material3:material3:1.2.1")
 
-
-
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // test
+    testImplementation(rootProject.extra["junitDep"].toString())
+    androidTestImplementation(rootProject.extra["androidJunitDep"].toString())
+    androidTestImplementation(rootProject.extra["espressoDep"].toString())
 }

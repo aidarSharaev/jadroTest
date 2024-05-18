@@ -32,7 +32,7 @@ class WeatherModule {
         router: WeatherRouter,
         useCases: WeatherUseCases,
         wrapper: WeatherStateWrapper,
-        resourceManager: JadroResourceManager
+        resourceManager: JadroResourceManager,
     ): ViewModel {
         return WeatherViewModel(
             router = router,

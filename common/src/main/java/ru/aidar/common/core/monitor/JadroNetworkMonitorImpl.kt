@@ -18,7 +18,7 @@ class JadroNetworkMonitorImpl(
     override val isOnline: Flow<Boolean> =
         callbackFlow {
             val connectivityManager = context.getSystemService<ConnectivityManager>()
-            if (connectivityManager == null) {
+            if(connectivityManager == null) {
                 channel.trySend(false)
                 channel.close()
                 return@callbackFlow

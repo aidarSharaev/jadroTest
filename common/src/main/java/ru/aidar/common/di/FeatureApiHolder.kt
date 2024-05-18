@@ -12,7 +12,7 @@ abstract class FeatureApiHolder(
     @Suppress("UNCHECKED_CAST")
     fun <T> getFeatureApi(): T {
         mFeatureLocker.lock()
-        if (mFeatureApi == null) {
+        if(mFeatureApi == null) {
             mFeatureApi = initializeDependencies()
         }
         mFeatureLocker.unlock()

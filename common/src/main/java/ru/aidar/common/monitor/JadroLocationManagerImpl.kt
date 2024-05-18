@@ -35,6 +35,7 @@ class JadroLocationManagerImpl(
         suspendCoroutine { continuation ->
             fusedLocation.lastLocation
                 .addOnSuccessListener { loc ->
+                    Log.d("JadroExc", "${loc?.latitude ?: "locat == null"}")
                     continuation.resume(loc)
                 }
                 .addOnCompleteListener { task ->

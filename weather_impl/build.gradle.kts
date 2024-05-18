@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "ru.aidar.weather_impl"
-    compileSdk = 34
+    compileSdk = rootProject.extra["compileSdk"].toString().toInt()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = rootProject.extra["minSdk"].toString().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -42,50 +42,53 @@ android {
 
 dependencies {
 
+    // project
     implementation(project(":weather_api"))
     implementation(project(":common"))
 
+    // dagger
     implementation(rootProject.extra["daggerDep"].toString())
     ksp(rootProject.extra["daggerKspDep"].toString())
 
+    // navigation
     implementation(rootProject.extra["navFragmentDep"].toString())
     implementation(rootProject.extra["navUiDep"].toString())
 
-    implementation ("androidx.fragment:fragment-ktx:1.7.1")
+    // location
+    implementation(rootProject.extra["locationDep"].toString())
 
-    implementation("com.google.android.gms:play-services-location:21.2.0")
-
-
-
+    // jetpack
     implementation(rootProject.extra["activityComposeDep"].toString())
     implementation(rootProject.extra["viewModelDep"].toString())
-    implementation("androidx.compose.foundation:foundation-layout-android:1.6.7")
-    implementation("androidx.compose.ui:ui:1.6.7")
+    implementation(rootProject.extra["runtimeDep"].toString())
+    implementation(rootProject.extra["composeUiDep"].toString())
     implementation("androidx.compose.runtime:runtime:1.6.7")
+    implementation("androidx.compose.material3:material3:1.2.1")
 
-
+    // remote
     implementation(rootProject.extra["retrofitDep"].toString())
     implementation(rootProject.extra["retrofitConverterDep"].toString())
     implementation(rootProject.extra["serializationDep"].toString())
-    implementation(rootProject.extra["okhttpDep"].toString())
-    implementation(rootProject.extra["interceptorDep"].toString())
 
+    // coroutnies
+    implementation(rootProject.extra["coroutinesAndroidDep"].toString())
 
-    implementation("androidx.compose.material3:material3:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling-android:1.6.7")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    // core
+    implementation(rootProject.extra["coreDep"].toString())
+    implementation(rootProject.extra["appCompatDep"].toString())
+    implementation(rootProject.extra["fragmentDep"].toString())
 
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    // material
+    implementation(rootProject.extra["materialDep"].toString())
 
+    // room
+    implementation(rootProject.extra["roomRuntime"].toString())
+    implementation(rootProject.extra["roomKtxRuntime"].toString())
+    annotationProcessor(rootProject.extra["roomKspRuntime"].toString())
+    ksp(rootProject.extra["roomKspRuntime"].toString())
 
-
-
-
-
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.12.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // test
+    testImplementation(rootProject.extra["junitDep"].toString())
+    androidTestImplementation(rootProject.extra["androidJunitDep"].toString())
+    androidTestImplementation(rootProject.extra["espressoDep"].toString())
 }
