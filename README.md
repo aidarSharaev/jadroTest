@@ -35,3 +35,7 @@
 ###  Show dialog
 #### _Clicking on the actionButton opens a Dialog that directs to the settings screen_
 <img src="https://github.com/aidarSharaev/jadroTest/assets/120299872/fdacecd2-8d0a-41b4-9203-654580b78cb3" width="300" height="650" />
+
+## Case 7: Emulator Google large
+### Show geoposition Mountain View
+<img src="https://github.com/aidarSharaev/jadroTest/assets/120299872/edb84a31-e602-4b3e-a8d3-71ef5b867829" width="300" height="650" />
